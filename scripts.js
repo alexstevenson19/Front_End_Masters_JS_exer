@@ -17,11 +17,11 @@ console.log(animal);
 
 var i = 0
 for(var key in animal){
-	i += 1;
+	i++;
 	console.log(i);
 	// console.log(animal[key]);
-	if (key == "username")
-		console.log(animal.username);
-	else if (key == "tagline")
-		console.log(animal.tagline);
-}
+	if (key === "username")
+		console.log("Hi, I my name is " + animal[key]);
+	else if (key === "tagline")
+		console.log(animal[key]);
+};
