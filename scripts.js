@@ -25,3 +25,28 @@ for(var key in animal){
 	else if (key === "tagline")
 		console.log(animal[key]);
 };
+
+// part 2 Array exercise===========================
+
+var noiseArray = [];
+
+noiseArray.unshift("quack");
+noiseArray.push("Woof")
+noiseArray[2] = ("neow")
+
+// console.log(noiseArray.length);
+// console.log(noiseArray[2]);
+
+animal.noises = noiseArray;
+// console.log(animal);
+
+var quackers = { username: 'DaffyDuck', tagline: 'Yippeee!', noises: ['quack', 'honk', 'sneeze', 'growl'] }
+var squirrel = { username: 'Bob', tagline: 'Nuts for nuts!', noises: ['chirp', 'screech'] }
+var cow = { username: 'Milkmaid', tagline: 'Dairy for Life', noises: ['moo', 'moo moo', 'moooooo'] }
+
+animals = [];
+
+animals.push(animal, quackers, squirrel, cow);
+
+console.log(animals);
+console.log(animals.length);
