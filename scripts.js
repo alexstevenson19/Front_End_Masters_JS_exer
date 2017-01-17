@@ -32,7 +32,7 @@ var noiseArray = [];
 
 noiseArray.unshift("quack");
 noiseArray.push("Woof")
-noiseArray[2] = ("neow")
+noiseArray[noiseArray.length] = ("neow")
 
 // console.log(noiseArray.length);
 // console.log(noiseArray[2]);
