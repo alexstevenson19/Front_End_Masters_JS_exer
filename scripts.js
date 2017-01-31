@@ -32,7 +32,7 @@ var noiseArray = [];
 
 noiseArray.unshift("quack");
 noiseArray.push("Woof")
-noiseArray[2] = ("neow")
+noiseArray[noiseArray.length] = ("neow")
 
 // console.log(noiseArray.length);
 // console.log(noiseArray[2]);
@@ -48,5 +48,20 @@ animals = [];
 
 animals.push(animal, quackers, squirrel, cow);
 
+console.log("Part 2- Arrays ===================================")
 console.log(animals);
 console.log(animals.length);
+
+// part 3 Function exercise=====================================
+
+var AnimalTestUser = function(username){
+	return username;
+}
+
+
+
+
+console.log("Part 2- Arrays ===================================")
+console.log(AnimalTestUser("Bob"));
+
+
