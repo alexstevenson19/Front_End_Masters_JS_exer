@@ -55,13 +55,24 @@ console.log(animals.length);
 // part 3 Function exercise=====================================
 
 var AnimalTestUser = function(username){
-	return username;
+	var otherArgs = [];
+	var args = arguments.length;
+	if (args > 1) {
+		for(var i=0; i<args; i++){
+			if (i > 0){
+			otherArgs.push(arguments[i]);
+				}
+			}
+	}
+	return { username: username,
+		otherArgs
+	}
 }
 
 
 
 
-console.log("Part 2- Arrays ===================================")
-console.log(AnimalTestUser("Bob"));
+console.log("Part 3- Functions ===================================")
+console.log(AnimalTestUser("Bob", "duck", "cat"));
 
 
