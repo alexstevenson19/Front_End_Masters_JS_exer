@@ -70,8 +70,10 @@ var AnimalTestUser = function(username){
 }
 
 var addFriend = function(animalFriends){
-	// var friends = []
-	return friends = animalFriends
+	var friends = []
+	if (animalFriends){
+		return friends = animalFriends.username
+	}
 }
 
 var AnimalCreator = function(info){
@@ -80,16 +82,24 @@ var AnimalCreator = function(info){
 		species = arguments[1];
 		tagline = arguments[2];
 		noises = arguments[3];
-		addFriend(arguments[4]);
+		var friendName = addFriend(arguments[4]);
+
+		if (addFriend == undefined) {
+			return { username, species, tagline, noises 
+			}
+		}
+		else {
+			return { username, species, tagline, noises, friendName
+			}
+		}
 	}
-	return { username, species, tagline, noises, friends}
 }
 
-
-
+var goose = AnimalCreator("George", "grey goose", "fly south", ['honk', 'hiss'], mallard)
+var mallard = AnimalCreator("Bob", "duck", 'You can count on me!', ['quack', 'arrgg', 'chewchewchew'], goose )
 
 console.log("Part 3- Functions ===================================")
-console.log(AnimalTestUser("Bob", "duck", "cat"));
-console.log(AnimalCreator("Bob", "duck", 'You can count on me!', ['baahhh', 'arrgg', 'chewchewchew'], ['bat', 'cow']));
+// console.log(AnimalTestUser("Bob", "duck", "cat"));
+console.log(mallard);
 
 
