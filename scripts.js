@@ -69,10 +69,82 @@ var AnimalTestUser = function(username){
 	}
 }
 
+// my original solution for addFriend=========================================
+// I thought it only took one argument, the friends so it complicated things and I had to jump through extra hoops to avoid conflicts, but got it to work. Her solution, is to give the animal (that already exists, and then the friend)
+
+// var addFriend = function(animalFriends){
+// 	var friends = []
+// 	if (animalFriends){
+// 		return friends = animalFriends.username
+// 	}
+// }
+
+var AnimalCreator = function(info){
+	// for(var i=0; i<arguments.length; i++){
+		username = arguments[0];
+		species = arguments[1];
+		tagline = arguments[2];
+		noises = arguments[3];
+		friends = [];
+		// original solution when I called the function I made above.======================
+		// var friendName = addFriend(arguments[4]);
+
+		// if (addFriend == undefined) {
+		// 	return { username, species, tagline, noises 
+		// 	}
+		// }
+		// else {
+		// 	return { username, species, tagline, noises, friendName
+		// 	}
+		// }
+	// }
+	return {username, species, tagline, noises, friends}
+}
+
+function addFriend(animal, friend){
+	animal.friends.push(friend.username);
+}
+// original solution for myFarm was just returning undefined.=====================
+// var myFarm = function(farmAnimals){
+// 	barn = []
+// 	for(var i=0; i<arguments.length; i++){
+// 		barn.push(farmAnimals[i]);
+// 	}
+// 		return(barn);
+// }
+
+function addMatchesArray(barn){
+	// or other loop for( var animal in barn){ barn[animal].matches = []}
+	for(var i=0; i < barn.length; i++){
+		barn[i].matches = []
+	}
+}
+
+function giveMatches(barn){
+	for (var animal in barn){
+		var pickFriend = Math.floor(Math.random()*barn[animal].friends.length)
+		barn[animal].matches.push(barn[animal].friends[pickFriend])
+	}
+}
 
 
+var goose = AnimalCreator('George', 'grey goose', 'fly south', ['honk', 'hiss']);
+//  original solution, I called the friend in the argument while creating the animal, instead of after when when the animal object already exists.
+// var mallard = AnimalCreator('Bob', 'duck', 'You can count on me!', ['quack', 'arrgg', 'chewchewchew'], goose );
+var mallard = AnimalCreator('Bob', 'duck', 'You can count on me!', ['quack', 'arrgg', 'chewchewchew']);
+addFriend(goose, mallard);
+var swan = AnimalCreator('Mary', 'white swan', 'I\'m not a pedal boat.', ['gargle', 'whoosh'] );
+addFriend(swan, goose);
+addFriend(swan, mallard);
 
 console.log("Part 3- Functions ===================================")
-console.log(AnimalTestUser("Bob", "duck", "cat"));
+// console.log(AnimalTestUser("Bob", "duck", "cat"));
+// console.log(mallard);
+// console.log(goose);
 
+//  FrontEnd Masters solution is simply an array?!?----------------------------
+var myFarm = [goose, mallard, swan];
 
+addMatchesArray(myFarm);
+giveMatches(myFarm);
+console.log(myFarm);
