@@ -102,16 +102,31 @@ var AnimalCreator = function(info){
 }
 
 function addFriend(animal, friend){
-		animal.friends.push(friend.username);
+	animal.friends.push(friend.username);
+}
+// original solution for myFarm was just returning undefined.=====================
+// var myFarm = function(farmAnimals){
+// 	barn = []
+// 	for(var i=0; i<arguments.length; i++){
+// 		barn.push(farmAnimals[i]);
+// 	}
+// 		return(barn);
+// }
+
+function addMatchesArray(barn){
+	// or other loop for( var animal in barn){ barn[animal].matches = []}
+	for(var i=0; i < barn.length; i++){
+		barn[i].matches = []
+	}
 }
 
-var myFarm = function(farmAnimals){
-	barn = []
-	for(var i=0; i<arguments.length; i++){
-		barn.push(farmAnimals[i]);
+function giveMatches(barn){
+	for (var animal in barn){
+		var pickFriend = Math.floor(Math.random()*barn[animal].friends.length)
+		barn[animal].matches.push(barn[animal].friends[pickFriend])
 	}
-		return(barn);
 }
+
 
 var goose = AnimalCreator('George', 'grey goose', 'fly south', ['honk', 'hiss']);
 //  original solution, I called the friend in the argument while creating the animal, instead of after when when the animal object already exists.
@@ -119,11 +134,17 @@ var goose = AnimalCreator('George', 'grey goose', 'fly south', ['honk', 'hiss'])
 var mallard = AnimalCreator('Bob', 'duck', 'You can count on me!', ['quack', 'arrgg', 'chewchewchew']);
 addFriend(goose, mallard);
 var swan = AnimalCreator('Mary', 'white swan', 'I\'m not a pedal boat.', ['gargle', 'whoosh'] );
-var farmCollection = myFarm(goose, mallard, swan);
+addFriend(swan, goose);
+addFriend(swan, mallard);
 
 console.log("Part 3- Functions ===================================")
-console.log(AnimalTestUser("Bob", "duck", "cat"));
-console.log(mallard);
-console.log(goose);
-console.log(farmCollection);
+// console.log(AnimalTestUser("Bob", "duck", "cat"));
+// console.log(mallard);
+// console.log(goose);
 
+//  FrontEnd Masters solution is simply an array?!?----------------------------
+var myFarm = [goose, mallard, swan];
+
+addMatchesArray(myFarm);
+giveMatches(myFarm);
+console.log(myFarm);
