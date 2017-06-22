@@ -147,4 +147,35 @@ var myFarm = [goose, mallard, swan];
 
 addMatchesArray(myFarm);
 giveMatches(myFarm);
-console.log(myFarm);
+// console.log(myFarm);
+
+
+
+
+
+
+// part 4 Nesting exercise=====================================
+
+
+var relationships = {}
+// var friendList = {};
+relationships['friendList'] = {};
+// friendList.friends = {};
+// friendList.matches = {};
+
+for(var x = 0; x < myFarm.length; x++){
+	relationships.friendList[myFarm[x].username + ' friends'] = myFarm[x]['friends'];
+	relationships.friendList[myFarm[x].username + 'matches'] = myFarm[x]['matches'];
+}
+
+// friendList.friends[myFarm[0]['username'] + ' friends'] = myFarm[0]['friends'];
+// friendList.friends[myFarm[2]['username'] + ' friends'] = myFarm[2]['friends'];
+
+// console.log(friendList.friends);
+// console.log(friendList.friends[myFarm[0]['username'] + ' friends']);
+console.log("part 4 Nesting --------------------------------")
+console.log(relationships);
+console.log(relationships.friendList['George friends']);
+// console.log(myFarm);
+
+
