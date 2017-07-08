@@ -179,3 +179,21 @@ console.log(relationships.friendList['George friends']);
 // console.log(myFarm);
 
 
+// part 5 Scope exercise=====================================
+
+
+// closure test============================
+
+var sayAlice = function(){
+
+	var makeLog = function(){
+		console.log(alice);
+	};
+
+	var alice = 'Why hello there, Alice!'
+
+	return makeLog
+};
+
+var whatDoesSheSay = sayAlice();
+whatDoesSheSay();
